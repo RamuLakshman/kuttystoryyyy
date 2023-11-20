@@ -14,17 +14,18 @@ import re
 #installing chromedriver and assigning executable_path to service
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
 # driver_service1 = Service(executable_path=ChromeDriverManager().install())
-driver=webdriver.Chrome(service=driver_service)
+#driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
-driver.get("https://www.kuttystory.com/")
+driver.get("https://kuttystory.com/")
 WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#global-nav > ul > li.cta > a > span")))
 
 
 # finding the SIGN_UP Element
-SIGNUP_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[8]/a/span ").click()
+SIGNUP_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span ").click()
 sleep(5)
 print("Welcome to kuttystory Journey")
 
@@ -40,7 +41,7 @@ WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"
 driver.find_element(By.XPATH, "//*[@id=\"id_name\"]")
 Name.send_keys("HarsheeLaks")
 Email=driver.find_element(By.XPATH, "//*[@id=\"id_username\"]")
-Email.send_keys("kuttystory2010@mailinator.com")
+Email.send_keys("kuttyyystorieee@mailinator.com")
 Phone=driver.find_element(By.XPATH, "//*[@id=\"id_phonenumber\"]")
 Phone.send_keys(7540045610)
 Password=driver.find_element(By.XPATH, "//*[@id=\"id_password1\"] ")
@@ -63,7 +64,7 @@ driver.switch_to.window("secondtab")
 driver.get("https://www.mailinator.com/v4/public/inboxes.jsp")
 WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#inbox_field")))
 #passing the email name
-driver.find_element(By.XPATH,"//*[@id=\"inbox_field\"]").send_keys("kuttystory2010")
+driver.find_element(By.XPATH,"//*[@id=\"inbox_field\"]").send_keys("kuttyyystorieee")
 sleep(6)
 driver.find_element(By.XPATH,"//*[@id=\"inbox_field\"]").send_keys(Keys.ENTER)
 sleep(15)
@@ -113,7 +114,7 @@ WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH,"//button[te
 
 #sending the credentials_login
 driver.find_element(By.XPATH,"//*[@id=\"id_username\"]")
-user_name.send_keys("kuttystory2010@mailinator.com")
+user_name.send_keys("kuttyyystorieee@mailinator.com")
 pass_wrd=driver.find_element(By.XPATH, "//*[@id=\"id_password\"]")
 pass_wrd.send_keys("Superkings9")
 sleep(3)
@@ -121,6 +122,7 @@ sleep(3)
 driver.find_element(By.XPATH,"//button[text()='Submit']").click()
 sleep(10)
 
+"""
 #sending Baby details
 #Storyname
 storyname =  WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#id_story_name")))
@@ -159,12 +161,12 @@ sleep(4)
 #Choose pic1
 driver.find_element(By.XPATH,"//*[@id=\"id_profile_pic\"]").send_keys("C:/Users/Toshiba/PycharmProjects/pythonProject4(kutty_storyyyy)/Family pic1.jpeg")
 sleep(3)
-
+"""
 """
 #Crop/Cancel
 driver.find_element(By.XPATH,"//button[@id='crop-btn']").click()
 sleep(3)
-"""
+
 
 #sending Personal_details
 phone_no =  WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#id_phone")))
@@ -190,11 +192,12 @@ driver.find_element(By.XPATH,"//*[@id=\"id_profile_pic1\"]").send_keys("C:/Users
 sleep(3)
 
 """
+"""
 #Crop/Cancel
 #crop
 driver.find_element(By.XPATH,"//button[@id='crop-btn1']").click()
 """
-
+"""
 #Postalcode
 pc=  WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#id_postal_code")))
 driver.find_element(By.XPATH, "//*[@id=\"id_postal_code\"]")
@@ -246,7 +249,7 @@ driver.execute_script("arguments[0].click();",Pay)
 sleep(2)
 
 
-
+"""
 """
 Agree=driver.find_element(By.XPATH,"(//input[@id='checkbox'])[1]")
 driver.execute_script("arguments[0].click();",Agree)

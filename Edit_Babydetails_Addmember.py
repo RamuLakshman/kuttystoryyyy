@@ -11,20 +11,20 @@ from selenium.webdriver import ActionChains
 
 #Chrome driver manager path copied and installed
 # assigning driver_service to driver
-driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
+#driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
 #driver_service = Service(executable_path=ChromeDriverManager().install())
-driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
 
-driver.get("https://www.kuttystory.com/")
+driver.get("https://kuttystory.com/")
 sleep(6)
 
 # finding the LOGIN Element
 WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#global-nav > ul > li:nth-child(7) > a > span")))
-login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span").click();
+login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span").click()
 print("Welcome to KuttyStory Journey")
 
 # wait until finding the element(usrname,pwd,Submit)

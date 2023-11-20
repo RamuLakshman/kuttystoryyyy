@@ -10,18 +10,19 @@ from selenium.webdriver.support.select import Select
 
 # assigning driver_service to driver
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
-driver=webdriver.Chrome(service=driver_service)
+#driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
-driver.get("https://www.kuttystory.com/")
+driver.get("https://kuttystory.com/")
 
 
 # finding the LOGIN Element
 #implicit wait until finding out the element
-WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#global-nav > ul > li:nth-child(7) > a > span")))
-login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span").click()
+#WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#global-nav > ul > li:nth-child(7) > a > span")))
+login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[6]/a/span").click()
 print("Welcome to KuttyStory Journey")
 
 # wait until finding the element(usrname,pwd,Submit)
@@ -31,7 +32,7 @@ WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH,"//button[te
 
 #sending the credentials
 driver.find_element(By.XPATH,"//*[@id=\"id_username\"]")
-user_name.send_keys("platinum86@mailinator.com")
+user_name.send_keys("Indian@mailinator.com")
 pass_wrd=driver.find_element(By.XPATH, "//*[@id=\"id_password\"]")
 pass_wrd.send_keys("Superkings9")
 sleep(4)
@@ -143,18 +144,23 @@ select=Select(dropdown_relations)
 select.select_by_value("Dad")
 sleep(4)
 
-name2=driver.find_element(By.XPATH,("(//div[@class='row form_split_bg']/div/div/div/input[@id='id_name'])[2]"))
+#name2=driver.find_element(By.XPATH,("(//div[@class='row form_split_bg']/div/div/div/input[@id='id_name'])[2]"))
+name2=driver.find_element(By.XPATH,"(//input[@id='id_name'])[2]")
 name2.send_keys("Abimanyu")
 sleep(3)
 
-email2=driver.find_element(By.XPATH,("(//div[@class='form-group col-md-4 mb-3']/input[@id='id_mail_id'])[2]"))
+#email2=driver.find_element(By.XPATH,("(//div[@class='form-group col-md-4 mb-3']/input[@id='id_mail_id'])[2]"))
+email2=driver.find_element(By.XPATH,"(//input[@id='id_mail_id'])[2]")
 email2.send_keys("harshithalakshman32@gmail.com")
 sleep(3)
 
-dropdown_relationships=driver.find_element(By.XPATH,("(//div/select[@id='id_relationship'])[2]"))
+
+#dropdown_relationships=driver.find_element(By.XPATH,("(//div/select[@id='id_relationship'])[2]"))
+dropdown_relationships=driver.find_element(By.XPATH,"(//select[contains(@name,'relationship')])[3]")
 select=Select(dropdown_relationships)
 select.select_by_value("Brother")
 sleep(4)
+
 
 
 #Submit

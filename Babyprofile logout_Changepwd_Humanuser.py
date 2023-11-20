@@ -10,18 +10,20 @@ from time import sleep
 # assigning driver_service to driver
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
 #driver_service = Service(executable_path=ChromeDriverManager().install())
-driver=webdriver.Chrome(service=driver_service)
+#driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
-driver.get("https://www.kuttystory.com/")
+driver.get("https://kuttystory.com/")
 sleep(3)
 # finding the LOGIN Element
-login_cmd=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span")
+login_cmd=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[6]/a/span")
 login_cmd.click()
 print("Welcome to KuttyStory Journey")
 sleep(3)
+
 
 # wait until finding the element(usrname,pwd,Submit)
 user_name =WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#id_username")))
@@ -53,7 +55,8 @@ print("logged out to switch to another user")
 sleep(3)
 
 #Reset_Pwd
-driver.find_element(By.XPATH,"//a[@href='/userapp/password-reset/']").click()
+#driver.find_element(By.XPATH,"//a[@href='/userapp/password-reset/']").click()
+driver.find_element(By.XPATH,"/html[1]/body[1]/div[1]/div[3]/div[1]/a[2]/i[1]").click()
 sleep(3)
 
 #reset
@@ -84,8 +87,9 @@ driver.switch_to.frame(driver.find_element(By.NAME, "texthtml_msg_body"))
 msg1=driver.find_element(By.XPATH,"/html/body").text
 sleep(4)
 print(msg1)
-
 """
+
+
 #sending the credentials
 driver.find_element(By.XPATH,"//*[@id=\"id_username\"]")
 user_name.send_keys("ramulakshmanan2010@gmail.com")

@@ -12,19 +12,21 @@ from time import sleep
 #installing chromedriver and assigning executable_path to service
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
 # driver_service1 = Service(executable_path=ChromeDriverManager().install())
-driver=webdriver.Chrome(service=driver_service)
+#driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
-driver.get("https://www.kuttystory.com/")
+driver.get("https://kuttystory.com/")
 WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#global-nav > ul > li.cta > a > span")))
 
 
 # finding the SIGN_UP Element
-SIGNUP_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[8]/a/span ").click()
+SIGNUP_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span").click()
 sleep(5)
 print("Welcome to kuttystory Journey")
+
 
 # wait until finding the element (Name,Email,Phone,Pwd,ConfirmPwd,Submit)
 Name =  WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#id_name")))
@@ -38,7 +40,7 @@ WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"
 driver.find_element(By.XPATH, "//*[@id=\"id_name\"]")
 Name.send_keys("HarsheeLaks")
 Email=driver.find_element(By.XPATH, "//*[@id=\"id_username\"]")
-Email.send_keys("kuttystory2000@mailinator.com")
+Email.send_keys("kuttyyystorieee@mailinator.com")
 Phone=driver.find_element(By.XPATH, "//*[@id=\"id_phonenumber\"]")
 Phone.send_keys(7540045610)
 Password=driver.find_element(By.XPATH, "//*[@id=\"id_password1\"] ")

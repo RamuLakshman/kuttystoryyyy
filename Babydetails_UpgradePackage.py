@@ -12,17 +12,18 @@ from time import sleep
 # assigning driver_service to driver
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
 #driver_service = Service(executable_path=ChromeDriverManager().install())
-driver=webdriver.Chrome(service=driver_service)
+#driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
-driver.get("https://www.kuttystory.com/")
+driver.get("https://kuttystory.com/")
 sleep(6)
 
 # finding the LOGIN Element
 WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#global-nav > ul > li:nth-child(7) > a > span")))
-login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span").click();
+login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[6]/a/span").click()
 print("Welcome to KuttyStory Journey")
 
 # wait until finding the element(usrname,pwd,Submit)
@@ -39,7 +40,7 @@ sleep(4)
 
 #show_pwd
 show_pwd= WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#box")))
-show_pwd.click();
+show_pwd.click()
 sleep(6)
 
 #submit_command
@@ -83,14 +84,14 @@ phoneno=driver.find_element(By.XPATH,"//input[@class='input-one-click-checkout p
 print(phoneno)
 
 sleep(3)
-"""
+
 #Proceed=driver.find_element(By.XPATH,"(//button[@id='redesign-v15-cta']")
 Proceed=driver.find_element(By.XPATH,"//div[@class='cta-container has-tooltip svelte-s8db8t reduce-amount-size no-shadow']/div[@class='redesign-v15-cta-wrapper svelte-s8db8t']/button[@id='redesign-v15-cta']")
 driver.execute_script("arguments[0].click();",Proceed)
 print(Proceed)
 sleep(5)
 #driver.back()
-
+"""
 
 
 Gold=driver.find_element(By.XPATH,"(//input[@id='submitbutton'])[2]")

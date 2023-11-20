@@ -10,12 +10,13 @@ from selenium.webdriver.support.select import Select
 
 # assigning driver_service to driver
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
-driver=webdriver.Chrome(service=driver_service)
+#driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
-driver.get("https:\\www.kuttystory.com")
+driver.get("https://kuttystory.com/")
 print("opened the browser")
 
 #kuttystory logo & homepage tabs
@@ -42,8 +43,8 @@ sleep(5)
 
 #Sign_up & Login
 print("Sign_up & Login")
-print(is_logo_present(By.XPATH,"//*[@id=\"global-nav\"]/ul/li[8]/a/span"))
 print(is_logo_present(By.XPATH,"//*[@id=\"global-nav\"]/ul/li[7]/a/span"))
+print(is_logo_present(By.XPATH,"//*[@id=\"global-nav\"]/ul/li[6]/a/span"))
 
 #BestGift
 print("Create a Treasure for your Little one")
@@ -65,15 +66,15 @@ print(is_logo_present(By.XPATH,"//*[@id=\"home-section\"]/div/div/div[2]/div[2]/
 sleep(3)
 
 #Sign_up logo
-driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[8]/a/span ").click()
+driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span ").click()
 sleep(3)
 print("Welcome to kuttystory Journey")
 print("Mom & Baby")
 print(is_logo_present(By.XPATH,"//*[@id=\"contact-section\"]/div/div/div/div[1]/img"))
 
 #Login Logo
-WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#global-nav > ul > li:nth-child(7) > a > span")))
-login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span").click();
+#WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#global-nav > ul > li:nth-child(7) > a > span")))
+login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[6]/a/span").click()
 sleep(3)
 print("Dad & son for photography")
 

@@ -11,18 +11,19 @@ from time import sleep
 # assigning driver_service to driver
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
 #driver_service = Service(executable_path=ChromeDriverManager().install())
-driver=webdriver.Chrome(service=driver_service)
+#driver=webdriver.Chrome(service=driver_service)
+driver=webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(20)
 
 #open the browser
-driver.get("https://www.kuttystory.com/")
+driver.get("https://kuttystory.com/")
 sleep(3)
 
 # finding the LOGIN Element
 #implicit wait until finding out the element
 WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#global-nav > ul > li:nth-child(7) > a > span")))
-login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[7]/a/span").click()
+login_command=driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[6]/a/span").click()
 print("Welcome to KuttyStory Journey")
 sleep(3)
 
@@ -79,28 +80,19 @@ print("Invalid Username & Pwd --->",Warning_Msg)
 driver.find_element(By.XPATH,"(//div[contains(@class,'emojionearea-editor')])[1]").send_keys("Greetings")
 comment=driver.find_element(By.XPATH,"(//i[contains(@class,'fa-solid fa-paper-plane px-2')])[1]").click()
 sleep(5)
-"""
-comment_list=driver.find_element(By.XPATH,"(//p[contains(@type,'button')][normalize-space()='COMMENTS'])[1]").click()
-print(comment_list)
-#driver.execute_script("arguments[0].click();", comment_list)
-sleep(6)
-"""
-"""
-driver.find_element(By.XPATH,"/html[1]/body[1]/div[5]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]").send_keys("Congratulations")
-driver.find_element(By.XPATH,"(//i[contains(@class,'fa-solid fa-paper-plane px-2')])[2]").click()
-sleep(2)
 
-driver.find_element(By.XPATH,"/html[1]/body[1]/div[5]/div[1]/div[1]/div[4]/div[4]/div[4]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]").send_keys("Roaming around the world")
-driver.find_element(By.XPATH,"(//i[contains(@class,'fa-solid fa-paper-plane px-2')])[6]").click()
-sleep(2)
-
-# WebDriverWait(driver,100).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"body > div.container.pt-0.pb-0.mb-3.reduce-mobile-width > div > div > div.memoryname > div.memoryname > div.memoryname > div.memoryname > div.memoryname > div.memoryname > div.image-right.my-0 > div > div > div.row > div > div > form > div > div.emojionearea-button > div.emojionearea-button-close")))
-driver.find_element(By.XPATH,"/html/body/div[5]/div/div/div[4]/div[4]/div[4]/div[4]/div[4]/div[4]/div[1]/div/div/div[2]/div/div/form/div/div[2]/div[2]").click()
-#driver.find_element(By.XPATH,"(//img[contains(@class,'emojioneemoji')])[14331]").click()
-#driver.find_element((By.XPATH,"(//i)[14383]")).click()
+comment_list=driver.find_element(By.XPATH,"(//p[contains(@type,'button')][normalize-space()='COMMENTS'])[1]")
+driver.execute_script("arguments[0].click();", comment_list)
 sleep(6)
 
-"""
+driver.find_element(By.XPATH,"(//div[contains(@class,'emojionearea-editor')])[2]").send_keys("Hearty Welcome")
+comment=driver.find_element(By.XPATH,"(//i[contains(@class,'fa-solid fa-paper-plane px-2')])[2]").click()
+sleep(5)
+
+comment_list=driver.find_element(By.XPATH,"(//p[contains(@type,'button')][normalize-space()='COMMENTS'])[2]")
+driver.execute_script("arguments[0].click();", comment_list)
+sleep(6)
+
 
 
 
