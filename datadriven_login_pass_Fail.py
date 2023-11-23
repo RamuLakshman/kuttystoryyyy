@@ -34,12 +34,11 @@ for r in range(2,rows+1):
     Password=xlmanager.readdata(path,'Login_Credentials',r,2)
 #open the browser
     driver.get("https://kuttystory.com/")
-    print("url title",driver.title)
     sleep(3)
 
 #login xpath
     driver.find_element(By.XPATH, "//*[@id=\"global-nav\"]/ul/li[6]/a/span").click()
-    print("Welcome to KuttyStory Journey")
+    # print("Welcome to KuttyStory Journey")
     sleep(3)
 
 
@@ -52,18 +51,14 @@ for r in range(2,rows+1):
 
 #comparing title with automation
 
+    actual_result=driver.current_url
 
-    if checkers.is_url('https://kuttystory.com/notification/memory_view/'):
+    expected_result="https://kuttystory.com/notification/memory_view/"
 
-       print("test is passed")
-#passing the results pass/fail
-       xlmanager.writedata(path,"Login_Credentials",r,3,"Passed")
-
+    if actual_result==expected_result:
+        print("Test case-->Passed")
+        xlmanager.writedata(path,"Login_Credentials",r,3,"Passed")
     else:
-
-        print("test is failed")
-        # Warning_Msg= driver.find_element(By.XPATH, "/html/body/div[4]/div/div[2]/div/div").text
-    xlmanager.writedata(path,"Login_Credentials",r,3,"failed")
-
-
+        print("Test case-->Failed")
+        xlmanager.writedata(path,"Login_Credentials",r,3,"failed")
 

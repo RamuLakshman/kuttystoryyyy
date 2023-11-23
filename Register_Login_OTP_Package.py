@@ -13,7 +13,7 @@ import re
 
 #installing chromedriver and assigning executable_path to service
 driver_service = Service(executable_path="C:/selenium browser drivers/chromedriver-win64/chromedriver.exe")
-# driver_service1 = Service(executable_path=ChromeDriverManager().install())
+# x`
 #driver=webdriver.Chrome(service=driver_service)
 driver=webdriver.Chrome()
 driver.maximize_window()
